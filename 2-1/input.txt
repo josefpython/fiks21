@@ -1,0 +1,262 @@
+1
+184
+Svedstina
+Lakadonstina
+Dakotstina
+Udmurstina
+Absaroctina
+Paststina
+Tadzictina
+Orijstina
+Balijstina
+Javanstina
+Esperanto
+Moabstina
+Urdstina
+Gaelstina
+Afrikanstina
+Zulustina
+Amharstina
+Kurdstina
+Sotstina
+Sicilstina
+Livonstina
+Mongolstina
+Malajalamstina
+Haitstina
+Sundstina
+Bengalstina
+Turectina
+Roparstina
+Syrstina
+Arabstina
+Vietnamstina
+Limburstina
+Gudzaratstina
+Ukrajinstina
+Naurstina
+Kasmirstina
+Romstina
+Katalanstina
+Staroslovenstina
+Unserdeutsch
+Slovenstina
+Haustina
+Samojstina
+Havajstina
+Albanstina
+Wolofstina
+Perstina
+Sentinelstina
+Rectina
+Rwandstina
+Nevarstina
+Benatstina
+Hmongstina
+Zazakstina
+Baskictina
+Nizozemstina
+Slovinstina
+Pomoranstina
+Karakalpactina
+Xhostina
+Bambarstina
+Malgastina
+Sumerstina
+Portugalstina
+Sindhstina
+Valonstina
+Slezstina
+Litevstina
+Norstina
+Estonstina
+Malajstina
+Thajstina
+Tibestina
+Lombardstina
+E
+Anglictina
+Mirandstina
+Khmerstina
+Tamilstina
+Francouzstina
+Belorustina
+Sonstina
+Neapolstina
+Oromstina
+Kasubstina
+Faerstina
+Extremadurstina
+Finstina
+Armenstina
+Barmstina
+Igbostina
+Latina
+Cinstina
+Ewestina
+Tangalstina
+Korejstina
+Cestina
+Retoromanstina
+Polstina
+Lakstina
+Fristina
+Kecujstina
+Bislamstina
+Hornoluzictina
+Azerbajdzanstina
+Pralovanstina
+Santalstina
+Samstina
+Bosenstina
+Vlamstina
+Islandstina
+Vilamovstina
+Kitsajstina
+Afarstina
+Ugaristina
+Pandzabstina
+Klingonstina
+Ladinstina
+Lucemburstina
+Abchazstina
+Maltstina
+Tonzstina
+Sangostina
+Uzbectina
+Srbstina
+Orkstina
+Turkmenstina
+Rustina
+Nandzstina
+Staroanglictina
+Kajovstina
+Dalmatstina
+Nepalstina
+Nemcina
+Cuangstina
+Lotystina
+Danstina
+Kazastina
+Kokota
+Jidish
+Tetumstina
+Makedonstina
+Spanelstina
+Indonestina
+Europanto
+Moldavstina
+Jukargstina
+Bulharstina
+Telugstina
+Okcitanstina
+Somalstina
+Korsictina
+Laostina
+Verstina
+Chuj
+Vepstina
+Aztectina
+Hebrejstina
+Ilokanstina
+Velstina
+Filipinstina
+Tahitstina
+Kanurijstina
+Ujgurstina
+Sanghajstina
+Kyrgyzstina
+Galicijstina
+Bugistina
+Kiňarwandstina
+Bavorstina
+Irstina
+Toskantstina
+Arumunstina
+Burgundstina
+Rumunstina
+Tzotzilstina
+Japonstina
+Cebuanstina
+Italstina
+Madarstina
+Cecenstina
+Sinhalstina
+Kornstina
+Zhuangstina
+74
+3 18 Tzotzilstina Santalstina Maltstina
+4 57 Ilokanstina Jidish Kornstina Bugistina
+2 99 Makedonstina Danstina
+2 12 Turectina Lakstina
+5 95 Ujgurstina Nizozemstina Zhuangstina Zazakstina Tzotzilstina
+3 17 Pomoranstina Unserdeutsch Mongolstina
+3 79 Bengalstina Spanelstina Tonzstina
+5 88 Filipinstina Vepstina Armenstina Staroanglictina Sinhalstina
+3 37 Zazakstina Syrstina Dalmatstina
+5 6 Lakstina Bulharstina Cebuanstina Syrstina Samojstina
+2 9 Polstina Vilamovstina
+5 95 Kecujstina Telugstina Esperanto Korejstina Amharstina
+2 28 Islandstina Chuj
+3 75 Malgastina Mongolstina Kyrgyzstina
+5 41 Bulharstina Slezstina Klingonstina Livonstina Italstina
+2 57 Orkstina Balijstina
+3 79 Vietnamstina Tamilstina Klingonstina
+2 42 Kyrgyzstina Hebrejstina
+3 73 Roparstina Kajovstina Rumunstina
+2 61 Fristina Korsictina
+5 70 Litevstina Galicijstina Europanto Bulharstina Bislamstina
+2 33 Indonestina Ewestina
+5 9 Francouzstina Gudzaratstina Faerstina Ilokanstina Somalstina
+5 1 Estonstina Kyrgyzstina Ewestina Livonstina Norstina
+2 95 Polstina E
+3 53 Makedonstina Sinhalstina Lombardstina
+5 57 Orkstina Anglictina Ujgurstina Esperanto Danstina
+4 40 Cuangstina Haitstina Igbostina Pralovanstina
+5 4 Sindhstina Toskantstina Mongolstina Burgundstina Portugalstina
+3 60 Bosenstina Pomoranstina Udmurstina
+5 54 Samojstina Svedstina Tadzictina Portugalstina Samstina
+5 57 Kokota Turkmenstina Bulharstina Kiňarwandstina Samstina
+2 33 Bosenstina Lakstina
+3 14 Limburstina Lombardstina Uzbectina
+2 54 Slovinstina Laostina
+3 24 Livonstina Sonstina Lombardstina
+4 7 Limburstina Tangalstina Italstina Retoromanstina
+2 22 Telugstina Mongolstina
+4 80 Makedonstina Tetumstina Pandzabstina Haitstina
+3 11 Italstina Romstina Pralovanstina
+4 79 Santalstina Nandzstina Katalanstina Azerbajdzanstina
+4 34 Moldavstina Kokota Sotstina Paststina
+4 13 Igbostina Kajovstina Zulustina Cebuanstina
+2 70 Pandzabstina Tangalstina
+5 90 Arumunstina Filipinstina Kajovstina Sicilstina Irstina
+2 63 Bavorstina Sinhalstina
+5 97 Lotystina Valonstina Kokota Orkstina Rustina
+4 80 Limburstina Telugstina Toskantstina Laostina
+2 68 Kecujstina Samojstina
+2 85 Bugistina Ilokanstina
+2 70 Ilokanstina Wolofstina
+2 43 Makedonstina Zulustina
+5 69 Dalmatstina Norstina Lakadonstina Rectina Paststina
+5 94 Kurdstina Galicijstina Nizozemstina Klingonstina Irstina
+5 37 Lucemburstina Estonstina Cuangstina Slovinstina Rectina
+5 78 Laostina Cestina Slovinstina Retoromanstina Irstina
+4 18 Katalanstina Norstina Zulustina Lakadonstina
+4 1 Toskantstina Norstina Rustina Spanelstina
+3 87 Toskantstina Ladinstina Somalstina
+3 97 Rectina Igbostina Hmongstina
+2 99 Faerstina Lakstina
+4 72 Burgundstina Staroslovenstina Toskantstina Kanurijstina
+4 29 Zazakstina Abchazstina Unserdeutsch Kiňarwandstina
+4 27 Malgastina Makedonstina Igbostina Sonstina
+5 95 Cuangstina Maltstina Sangostina Orijstina Hebrejstina
+4 16 Samojstina Livonstina Korsictina Khmerstina
+5 23 Turkmenstina Udmurstina Laostina Burgundstina Tibestina
+3 96 Tahitstina Nizozemstina Afarstina
+4 25 Rumunstina Bugistina Lakstina Sumerstina
+2 43 Udmurstina Azerbajdzanstina
+2 45 Danstina Afrikanstina
+5 79 Kanurijstina Romstina Syrstina Gudzaratstina Urdstina
+3 83 Kazastina Sentinelstina Tetumstina
+4 44 Bengalstina Nizozemstina Bosenstina Benatstina
+Pralovanstina Lakadonstina
