@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import sys
 
 class Flock:
 
@@ -37,28 +38,30 @@ class Flock:
 
 def solveFromBounds(v):
 
-    ans = i = 0
-    grid = []
+    ans = 0
+    count = 0
+    data = []
   
     for i in range(len(v)):
   
-        grid.append([v[i][0], 'x'])
-        grid.append([v[i][1], 'y'])
+        data.append([v[i][0], 'x'])
+        data.append([v[i][1], 'y'])
   
-    grid = sorted(grid)
+    data = sorted(data)
   
-    for i in range(len(grid)):
+    for i in range(len(data)):
   
-        if (grid[i][1] == 'x'):
-            i += 1
-        elif (grid[i][1] == 'y'):
-            i -= 1
-
-        ans = max(ans, i)
+        if (data[i][1] == 'x'):
+            count += 1
+  
+        if (data[i][1] == 'y'):
+            count -= 1
+  
+        ans = max(ans, count)
   
     return ans
 
-with open("input.txt") as f:
+with sys.stdin as f:
 
     raw = f.read()
     nflocks, xvec, yvec = raw.split("\n")[0].split(" ")
@@ -66,5 +69,4 @@ with open("input.txt") as f:
     flocks = [np.array_split(h, len(h)/2) for h in rawLns]
 
     start = time.time()
-    print(f"Maximálně můžeme navštívit {solveFromBounds([Flock(fl,[int(xvec),int(yvec)]).findBounds() for fl in flocks])} hejn")
-    print(f"Vyřešeno v čase {round(time.time()-start,2)}s")
+    print(solveFromBounds([Flock(fl,[int(xvec),int(yvec)]).findBounds() for fl in flocks]))
