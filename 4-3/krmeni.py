@@ -5,11 +5,17 @@ import time
 class World:
     def __init__(self) -> None:
         self.graph = defaultdict(list)
+        self.depths = defaultdict(list)
 
     def addNodeAS(self, nodes):
         f,t = [int(i) for i in nodes]
         self.graph[t].append(f)
         self.graph[f].append(t)
+
+    def helpMe(self):
+        for key,val in self.graph.items():
+            if len(val) == 1:
+                print(f"CUmslut bottom node::{key}")
 
     def BFSthis(self, start, countries):
         res = 0
@@ -21,43 +27,26 @@ class World:
         node = start #starting node
         queue = []
 
-        thisres = 0
+        depth = 0
 
         visited.add(node)
         queue.append(node)
 
         while queue:
-            #print(f"{len(queue)} /// {len(visited)}")
 
             s = queue.pop(0) 
-            #thisres+=1 
+
+            depth+=1
 
             for neighbour in graph[s]:
                 if neighbour not in visited:
                     visited.add(neighbour)
                     queue.append(neighbour)
-                    thisres+=1
 
                     if neighbour in countries:
-                        res += thisres
+                        res += depth
+
         return res
-
-    def DFSthis(self, start, countries):
-
-        for country in [int(c) for c in countries[1:]]:
-
-            self.dfs(self.graph, [], [country])
-
-    def dfs(self, graph, start, visited):
-        if visited is None:
-            visited = set()
-        visited.add(start)
-
-        print(start)
-
-        for next in graph[start] - visited:
-            self.dfs(graph, next, visited)
-        return visited
 
 with sys.stdin as f:
 
@@ -69,7 +58,8 @@ with sys.stdin as f:
     for friends in g:
         s.addNodeAS(friends)
     #creates graph from input
-    print("created graph with " + str(len(s.graph))+" nodes")
+    print("[i] created graph with " + str(len(s.graph))+" nodes, counting depths")
+    s.helpMe()
 
     startTime = time.time()
 
