@@ -49,11 +49,9 @@ with sys.stdin as f:
 
         for c in nds:
             exp += tree.depth(c)
-        #EXP DONE ^^ prepare SFL vv
         
         if amnt == 1:
             res = str(exp)
-
 
         elif (amnt == 3 or amnt == 2):
             tbworl = defaultdict(int)
@@ -67,59 +65,6 @@ with sys.stdin as f:
                     ans +=1
            
             res = str(exp-ans)
-
-
-        elif amnt == 100 and False:
-
-            # [ [depth,[ pathToRoot ]], ... ]
-
-            iterList = []
-
-            st = time.time()
-
-            tbworl = defaultdict(set)
-            #Tree But With Only Relevant Nodes
-            
-            for nodee in nds:
-                iterList.append([tree.depth(nodee),[]])
-                pth = [x for x in tree.rsearch(nodee)][::-1][1:]
-                iterList[-1][1] = pth
-
-            print(f"{time.time()-st}")
-
-            newBest = iterList
-            bestd = exp
-            changed = True
-            while changed:
-                changed = False
-                bestList = newBest
-                for i in bestList:
-                    try:
-                        chosen = i[1][0]
-                    except:
-                        pass
-                    iLkeep = bestList
-                    l = 0 
-                    for x in iLkeep:
-                        try:
-                            if x[1][0] == chosen:
-                                x[1].pop(0)
-                                x[0] -= 1
-                            else:
-                                x[1].insert(0,chosen)
-                                x[0] += 1
-                            #print(iLkeep)
-                        except:
-                            x[1].insert(0,chosen)
-                            x[0] += 1
-                        
-                    d = sum([a[0] for a in iLkeep])
-                    if bestd > d:
-                        changed = True
-                        newBest = iLkeep
-                        bestd = d
-                if amnt > 110:
-                    print("deeper..")
 
         else:
             # {depth:{node:amnt}, ..}
@@ -143,7 +88,6 @@ with sys.stdin as f:
                             iterList[d][p] = 1
                         except KeyError:
                             iterList.update({d:{p:1}})
-                  
 
             keeper = 0
             bestNode = 1
