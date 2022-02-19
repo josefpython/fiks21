@@ -1,78 +1,142 @@
+from itertools import count
 import sys
 from collections import defaultdict
+from treelib import Tree
 import time
 
-class World:
-    def __init__(self) -> None:
-        self.graph = defaultdict(list)
-        self.depths = defaultdict(list)
+def makeTree(root, graph):
+    tree = Tree()
+    tree.create_node(root,root)
+    g = graph
 
-    def addNodeAS(self, nodes):
-        f,t = [int(i) for i in nodes]
-        self.graph[t].append(f)
-        self.graph[f].append(t)
+    q = []
+    v = set()
+    
+    q.append(root)
+    
+    while q:
+        c = q.pop(0)
+        for child in g[c]:
+            if not (child in v):
+                tree.create_node(child, child, parent=c)
+                q.append(child)
+        v.add(c)
+    return tree
 
-    def helpMe(self):
-        for key,val in self.graph.items():
-            if len(val) == 1:
-                print(f"CUmslut bottom node::{key}")
-
-    def BFSthis(self, start, countries):
-        res = 0
-
-        countries = [int(c) for c in countries[1:]]
-
-        visited = set()
-        graph = self.graph #graph
-        node = start #starting node
-        queue = []
-
-        depth = 0
-
-        visited.add(node)
-        queue.append(node)
-
-        while queue:
-
-            s = queue.pop(0) 
-
-            depth+=1
-
-            for neighbour in graph[s]:
-                if neighbour not in visited:
-                    visited.add(neighbour)
-                    queue.append(neighbour)
-
-                    if neighbour in countries:
-                        res += depth
-
-        return res
+def moveRoot(root, tree: Tree):
+    givenTree = tree
+    newTree = tree.remove_subtree(root)
+    
+    newTree.paste(root,givenTree)
+    return newTree
+    
 
 with sys.stdin as f:
 
+    file = open("output.txt","r+")
+    file.truncate(0)
+    file.close()
+
     rl = f.read().split("\n")
     g = [i.split(" ") for i in rl[1:int(rl[0].split(" ")[0])]]
-    q = [i.split(" ") for i in rl[int(rl[0].split(" ")[0]):]]
+    qe = [i.split(" ") for i in rl[int(rl[0].split(" ")[0]):]]
 
-    s = World()
+    graph = defaultdict(list)
+    tree = Tree()
+
     for friends in g:
-        s.addNodeAS(friends)
-    #creates graph from input
-    print("[i] created graph with " + str(len(s.graph))+" nodes, counting depths")
-    s.helpMe()
+        f,t = [int(i) for i in friends]
+        graph[t].append(f)
+        graph[f].append(t)
 
-    startTime = time.time()
+    root = 1
 
-    for k in q:
-        print("running k ")
-        exp = s.BFSthis(1,k)
-        sfl = exp
-        for start in s.graph.keys():
-            curr = s.BFSthis(start,k)
-            if curr < sfl:
-                sfl = curr
+    tree.create_node(root,root)
+    g = graph
 
-        res = str(exp-sfl)
-        print(f"[!!! RESULT FOUND] ({res}) in {time.time()-startTime}s")
+    q = []
+    v = set()
+    
+    q.append(root)
+    
+    while q:
+        c = q.pop(0)
+        for child in g[c]:
+            if not (child in v):
+                tree.create_node(child, child, parent=c)
+                q.append(child)
+        v.add(c)
+
+    for k in qe:
+
+        exp = 0
+
+        nds = [int(c) for c in k[1:]]
+        amnt = int(k[0])
+
+        for c in nds:
+            exp += tree.depth(c)
+        #EXP DONE ^^ prepare SFL vv
+        
+        if amnt == 1:
+            res = str(exp)
+
+
+        elif (amnt == 3 or amnt == 2):
+            tbworl = defaultdict(int)
+            #Tree But With Only Relevant Nodes
+            for nodee in nds:
+                for tray in tree.rsearch(nodee):
+                    tbworl[tray] += 1
+            ans = 0
+            for k,v in tbworl.items():
+                if v != amnt:
+                    ans +=1
+           
+            res = str(exp-ans)
+
+
+        else:
+
+            st = time.time()
+
+            tbworl = defaultdict(set)
+            #Tree But With Only Relevant Nodes
+            
+            for nodee in nds:
+                prev = None
+                for tray in tree.rsearch(nodee):
+                    if prev != None:
+                        tbworl[prev].add(tray)
+                        tbworl[tray].add(prev)
+                    prev = tray
+            # CORRECT ^^^
+            ks = set(tbworl.keys())
+            bestWeight = exp
+            root = 1
+            #t=makeTree(root,tbworl)
+            while True:
+                childChanged = False
+                ar = set([g.identifier for g in tree.children(root)]).intersection(ks)
+                try:
+                    
+                    for child in ar:
+                        t = makeTree(child,tbworl)
+                        xy=0
+                        for n in nds:
+                            xy+=t.depth(n)
+                        if xy < bestWeight:
+                            bestWeight = xy
+                            root = child
+                            childChanged = True
+                        
+                    if not childChanged:
+                        break
+                except:
+                    break
+
+            print(f"{time.time()-st}")
+            res = str(exp-bestWeight)
+
         with open("output.txt", "a") as ft:
             ft.write("\n"+res)
