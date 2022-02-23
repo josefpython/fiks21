@@ -46,7 +46,7 @@ class Process:
             self.is_alive = False
         
     def swap(self):
-        if self.tray.qsize > 1:
+        if self.tray.qsize() > 1:
             first = self.tray.get(block=False)
             second = self.tray.get(block=False)
             self.tray.put(first,block=False)
@@ -74,7 +74,7 @@ class Process:
 
     def load(self,mem: Memory):
         try:
-            top = self.tray.get()
+            top = self.tray.get(block=False)
             self.tray.put(mem.read(top),block=False)
             self.PC +=1
         except (Full, Empty):
@@ -82,10 +82,10 @@ class Process:
 
     def store(self, mem: Memory):
         try:
-            addr  = self.tray.get(block=False)
+            addr = self.tray.get(block=False)
             val = self.tray.get(block=False)
-            mem.write(addr,val)
             self.PC +=1
+            return addr,val
         except (Empty, CPUSpecificError):
             self.is_alive = False
 
