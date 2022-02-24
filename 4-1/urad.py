@@ -1,7 +1,7 @@
 import sys
 from cpu import Memory, Process
 
-# TODO: Fix arithmetic operations, via. line 101 in output.txt
+# TODO: Figure out whats causeing iregularities on lns 55 & 82 in output
 # Build teleport
 # Build bombs
 # 😎

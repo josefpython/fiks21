@@ -1,5 +1,6 @@
 from queue import LifoQueue, Empty, Full
-from re import A
+
+bitmax = 2**32
 
 class CPUSpecificError(Exception):
     pass
@@ -93,7 +94,7 @@ class Process:
         try:
             no = self.tray.get(block=False)
             nt = self.tray.get(block=False)
-            self.tray.put(no+nt,block=False)
+            self.tray.put((no+nt)%bitmax,block=False)
             self.PC +=1
         except Empty:
             self.is_alive = False
@@ -102,7 +103,7 @@ class Process:
         try:
             no = self.tray.get(block=False)
             nt = self.tray.get(block=False)
-            self.tray.put(no-nt,block=False)
+            self.tray.put((no-nt)%bitmax,block=False)
             self.PC +=1
         except Empty:
             self.is_alive = False
@@ -111,7 +112,7 @@ class Process:
         try:
             no = self.tray.get(block=False)
             nt = self.tray.get(block=False)
-            self.tray.put(no/nt,block=False)
+            self.tray.put((no//nt)%bitmax,block=False)
             self.PC +=1
         except (Empty, ZeroDivisionError):
             self.is_alive = False
@@ -120,7 +121,7 @@ class Process:
         try:
             no = self.tray.get(block=False)
             nt = self.tray.get(block=False)
-            self.tray.put(no**nt,block=False)
+            self.tray.put(pow(no,nt,bitmax),block=False)
             self.PC +=1
         except Empty:
             self.is_alive = False
