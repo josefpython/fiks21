@@ -1,11 +1,7 @@
-from responsivepathing import here
-from collections import OrderedDict
-from sys import getsizeof
-
 vysledek = ""
 
 #prep phase
-raw = open(here("input"), "r").read().split("\n")
+raw = open("input", "r").read().split("\n")
 zadani_arr = []
 
 zadaniZacatky = []
@@ -19,10 +15,8 @@ for row in raw:
 for iter in range(int(raw[0])):
 
     if iter+1 != len(zadaniZacatky):
-        
         zadani_arr.append( raw[zadaniZacatky[iter]:zadaniZacatky[iter+1]] )
     else:
-      
         zadani_arr.append( raw[zadaniZacatky[iter]:] )
 
 zadanin = 0
@@ -48,18 +42,7 @@ for zadani in zadani_arr:
         x,y = dependency.split(" ")      
         dependencies[int(x)].insert(0,int(y))
 
-    #created dic of dependencies, check if possible
-    
-    if False:
-        pass
-
-    #TODO
-    # 2slow
-    # <3
-    
-
     else:
-
         print("dependencies sorted, cutting..")
 
         cutHistory = []
@@ -75,7 +58,7 @@ for zadani in zadani_arr:
 
         fallback = 0
 
-        while cut != []:
+        while not cut:
 
             if not set(cut) in cutHistory:
 
@@ -87,12 +70,9 @@ for zadani in zadani_arr:
                 newCut = []
                 
                 for number in cut:
-
                     try:
-
                         for value in dependencies[number]:
                             newCut.append(value)
-
                     except KeyError:
                         pass
 
@@ -102,15 +82,12 @@ for zadani in zadani_arr:
                 deepCut.reverse()
                 deepCut = list(dict.fromkeys(deepCut))
                 deepCut.reverse()
-                
 
             else:
                 fuck = True
                 break
 
-
         if not fuck:
-
             deepCut.reverse()
             xyx = list(dict.fromkeys(deepCut))
 
@@ -118,11 +95,8 @@ for zadani in zadani_arr:
             print("resulted possible")
 
         else:
-
             vysledek = vysledek + "ajajaj" + "\n"
             print("resulted impossible")
-        
-
     
-with open(here("output"), "w") as f:
+with open("output", "w") as f:
     f.write(vysledek[:-1])
