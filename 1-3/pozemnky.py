@@ -1,7 +1,4 @@
-from responsivepathing import here
-
-#prep phase
-raw = open(here("input"), "r").read().split("\n")
+raw = open("input", "r").read().split("\n")
 
 zadani_arr = []
 zadaniZacatky = []
@@ -15,12 +12,9 @@ for row in raw:
     i += 1
 
 for iter in range(amnt):
-
     if iter+1 != len(zadaniZacatky):
-        
         zadani_arr.append( raw[zadaniZacatky[iter]:zadaniZacatky[iter+1]] )
     else:
-      
         zadani_arr.append( raw[zadaniZacatky[iter]:] )
 
 vysledek = ""
@@ -35,5 +29,5 @@ for zadani in zadani_arr:
 
     vysledek = vysledek + str(msqr) + "\n"
 
-with open(here("output"), "w") as f:
+with open("output", "w") as f:
     f.write(vysledek)
