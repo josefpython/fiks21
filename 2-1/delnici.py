@@ -1,12 +1,17 @@
-from responsivepathing import here
 import dijkstra as dg
-import fiks
+
+def vypsat_seznam(array):
+    "Udělá ze seznamu string oddělený novým řádkem"
+    ret = ""
+    for iter in array:
+        ret = ret + iter + "\n"
+    return ret[:-1]
 
 vysledek = ""
 
 #prep phase
 
-raw = open(here("input.txt"), "r", encoding="utf8", newline="\n").read().split("\n")
+raw = open("input.txt", "r", encoding="utf8", newline="\n").read().split("\n")
 zadani_arr = []
 
 zadaniZacatky = []
@@ -63,9 +68,9 @@ for zadani in zadanis:
 
     ln = dg.dijsktra(graph, z, na)
     if ln[0]:
-        vysledek = vysledek + "To nas bude stat " + str(ln[2]) + ",-.\nPocet prekladu: " + str(len(ln[1])-1) + ".\n" + fiks.vypsat_seznam(ln[1]) + "\n"
+        vysledek = vysledek + "To nas bude stat " + str(ln[2]) + ",-.\nPocet prekladu: " + str(len(ln[1])-1) + ".\n" + vypsat_seznam(ln[1]) + "\n"
     else:
         vysledek = vysledek + "Takove prekladatele nemame.\n"
 
-with open(here("output.txt"), "w+", encoding="utf8", newline="\n") as f:
+with open("output.txt", "w+", encoding="utf8", newline="\n") as f:
     f.write(vysledek)
