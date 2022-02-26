@@ -3,7 +3,7 @@ from queue import LifoQueue, Empty, Full
 bitmax = 2**32
 
 class CPUSpecificError(Exception):
-    pass
+    print("!!! cpu spec these nuts bestie")
 
 class Memory:
     def __init__(self):
@@ -14,6 +14,9 @@ class Memory:
         if (address%256) != 0:
             self.data[address%256] = value
     def read(self, address):
+        if address == 666:
+            #raise CPUSpecificError
+            pass
         return self.data[address%256]
 
 class Process:
@@ -21,6 +24,7 @@ class Process:
         self.PC = offset
         self.tray = LifoQueue(16)
         self.is_alive = True
+        self.awaitingTeleport = False
 
     def nop(self):
         self.PC +=1
@@ -78,7 +82,7 @@ class Process:
             top = self.tray.get(block=False)
             self.tray.put(mem.read(top),block=False)
             self.PC +=1
-        except (Full, Empty):
+        except (Full, Empty, CPUSpecificError):
             self.is_alive = False
 
     def store(self, mem: Memory):
