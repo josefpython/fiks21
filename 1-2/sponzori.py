@@ -41,14 +41,19 @@ for jmeno, zvirata in sponzorZvirataDict.items():
 
         zvireSponzori[int(zvire)].append(jmeno)
 
-zvireSponzoriSortedKeys = sorted(zvireSponzori, key=lambda k: len(zvireSponzori[k]), reverse=True)
+def sort(toSort):
+    
+    srtd = OrderedDict()
+    srtdKeys = sorted(toSort, key=lambda k: len(toSort[k]), reverse=True)
 
-zvireSponzoriSorted = OrderedDict()
+    for i in srtdKeys[::-1]:
+        srtd[i] = toSort.get(i)
 
-for key in zvireSponzoriSortedKeys[::-1]:
-    zvireSponzoriSorted[key] = zvireSponzori.get(key)
+    return srtd
 
 zvireSponzor = {}
+
+zvireSponzoriSorted = sort(zvireSponzori)
 
 for i in range(instrukce[0]):
     try:
@@ -66,6 +71,8 @@ for i in range(instrukce[0]):
 
     except IndexError:
         zvireSponzoriSorted.popitem(last=False)
+
+    zvireSponzoriSorted = sort(zvireSponzoriSorted)    
 
 vysledek = []
 vysledekAbc = ""
